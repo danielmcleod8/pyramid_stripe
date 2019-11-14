@@ -18,9 +18,9 @@ def includeme(config):
        config.include('pyramid_stripe')
 
     """
-    config.set_request_property(request.add_stripe_event, "stripe",
+    config.add_request_method(request.add_stripe_event, "stripe",
                                 reify=True)
-    config.set_request_property(request.add_stripe_event_raw, "stripe_raw",
+    config.add_request_method(request.add_stripe_event_raw, "stripe_raw",
                                 reify=True)
     config.include(add_routes)
     config.scan("pyramid_stripe.views")
